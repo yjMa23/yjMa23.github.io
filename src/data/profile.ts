@@ -44,7 +44,7 @@ export interface Profile {
 // TODO：将下方占位资料替换为你的真实信息。
 export const profile: Profile = {
   name: 'Magic',
-  initials: 'YN',
+  initials: 'Ma',
   role: '机器人算法工程师 · 终身学习者',
   tagline: '把复杂的问题想清楚，也把学到的东西写清楚。',
   bio: '你好，我是一名专注于机器人开发与工程效率的软件开发者。这个网站记录我的项目、技术笔记，以及那些值得反复翻阅的实践经验。',
