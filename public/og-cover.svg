@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#f7f7f2"/>
+      <stop offset="1" stop-color="#e7f5e9"/>
+    </linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="18" stdDeviation="22" flood-color="#17351f" flood-opacity=".12"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="1090" cy="70" r="260" fill="#bbf7d0" opacity=".45"/>
+  <circle cx="80" cy="620" r="270" fill="#dcfce7" opacity=".75"/>
+  <g filter="url(#shadow)">
+    <rect x="84" y="78" width="1032" height="474" rx="38" fill="#fff" stroke="#dce5dc"/>
+  </g>
+  <rect x="142" y="138" width="68" height="68" rx="20" fill="#166534"/>
+  <text x="176" y="180" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="800" fill="#fff">YN</text>
+  <text x="142" y="300" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="72" font-weight="800" fill="#1d211c">你的名字</text>
+  <text x="142" y="378" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="38" fill="#166534">个人主页 · 技术文档 · 持续构建</text>
+  <text x="142" y="458" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="25" fill="#667064">把复杂的问题想清楚，也把学到的东西写清楚。</text>
+  <path d="M942 181h77v77M1019 181 894 306" fill="none" stroke="#22c55e" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

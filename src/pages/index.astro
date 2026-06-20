@@ -1,0 +1,170 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Icon from '../components/Icon.astro';
+import { profile } from '../data/profile';
+import '../styles/home.css';
+
+const year = new Date().getFullYear();
+---
+
+<BaseLayout>
+  <header class="site-header">
+    <nav class="nav shell" aria-label="主导航">
+      <a class="brand" href="/" aria-label="返回首页">
+        <span class="brand-mark">{profile.initials}</span>
+        <span>{profile.name}</span>
+      </a>
+      <div class="nav-links">
+        <a href="#about">关于</a>
+        <a href="#projects">项目</a>
+        <a href="/docs/">文档</a>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="切换到深色模式">
+          <span class="sun"><Icon name="sun" size={18} /></span>
+          <span class="moon"><Icon name="moon" size={18} /></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <section class="hero shell" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <div class="eyebrow"><span></span> 你好，欢迎来到我的数字花园</div>
+        <h1 id="hero-title">把复杂的问题<br /><em>想清楚，写明白。</em></h1>
+        <p class="hero-lead">{profile.tagline}</p>
+        <div class="hero-actions">
+          <a class="button primary" href="/docs/">浏览技术文档 <Icon name="arrow" size={18} /></a>
+          <a class="button secondary" href="#about">认识一下我</a>
+        </div>
+        <div class="quick-meta">
+          <span><Icon name="map" size={16} /> {profile.location}</span>
+          <span><Icon name="spark" size={16} /> {profile.availability}</span>
+        </div>
+      </div>
+
+      <div class="hero-visual" aria-hidden="true">
+        <div class="orbit orbit-one"></div>
+        <div class="orbit orbit-two"></div>
+        <div class="portrait-card">
+          <div class="portrait-top">
+            <span class="status-dot"></span>
+            <span>profile.ts</span>
+            <span class="line-count">24 lines</span>
+          </div>
+          <div class="avatar">{profile.initials}</div>
+          <div class="code-lines">
+            <p><b>const</b> developer = {'{'}</p>
+            <p><span>name:</span> <i>'{profile.name}'</i>,</p>
+            <p><span>focus:</span> <i>'Web & DX'</i>,</p>
+            <p><span>mode:</span> <i>'Keep building'</i></p>
+            <p>{'}'};</p>
+          </div>
+        </div>
+        <span class="float-tag tag-one">TypeScript</span>
+        <span class="float-tag tag-two">Astro</span>
+        <span class="float-tag tag-three">Open source</span>
+      </div>
+    </section>
+
+    <section id="about" class="section shell about-grid" aria-labelledby="about-title">
+      <div class="section-intro">
+        <p class="section-kicker">01 / 关于我</p>
+        <h2 id="about-title">代码之外，<br />我更关心问题本身。</h2>
+      </div>
+      <div class="about-copy">
+        <p class="large-copy">{profile.bio}</p>
+        <p>我相信好的技术方案应该既能解决眼前的问题，也能让下一次修改变得更容易。写作是我梳理思路的方式，也是把个人经验变成公共知识的过程。</p>
+        <div class="social-row">
+          {profile.socialLinks.map((link) => (
+            <a href={link.href} class="text-link">
+              <Icon name={link.icon} size={18} /> {link.label}
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section skills-section" aria-labelledby="skills-title">
+      <div class="shell">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">02 / 能力地图</p>
+            <h2 id="skills-title">我在使用的工具与方法</h2>
+          </div>
+          <p>技术会变，解决问题的能力会留下。</p>
+        </div>
+        <div class="skill-grid">
+          {profile.skillGroups.map((group, index) => (
+            <article class="skill-card">
+              <span class="card-index">0{index + 1}</span>
+              <h3>{group.title}</h3>
+              <p>{group.description}</p>
+              <ul aria-label={`${group.title}技术栈`}>
+                {group.items.map((item) => <li>{item}</li>)}
+              </ul>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section shell" aria-labelledby="projects-title">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">03 / 精选项目</p>
+          <h2 id="projects-title">最近在构建什么</h2>
+        </div>
+        <p>这里先放了示例项目，替换配置即可更新。</p>
+      </div>
+      <div class="project-list">
+        {profile.projects.map((project, index) => (
+          <a class="project-card" href={project.href} aria-label={`查看项目：${project.title}`}>
+            <span class="project-number">0{index + 1}</span>
+            <div class="project-main">
+              <div class="project-title-row"><h3>{project.title}</h3><span>{project.status}</span></div>
+              <p>{project.description}</p>
+              <ul>{project.tags.map((tag) => <li>{tag}</li>)}</ul>
+            </div>
+            <span class="project-arrow"><Icon name="arrow" size={22} /></span>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <section class="section docs-section" aria-labelledby="docs-title">
+      <div class="shell">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">04 / 技术文档</p>
+            <h2 id="docs-title">最近整理的内容</h2>
+          </div>
+          <a class="text-link" href="/docs/">查看全部文档 <Icon name="arrow" size={18} /></a>
+        </div>
+        <div class="doc-grid">
+          {profile.featuredDocs.map((doc) => (
+            <a class="doc-card" href={doc.href}>
+              <span class="doc-category">{doc.category}</span>
+              <h3>{doc.title}</h3>
+              <p>{doc.description}</p>
+              <div><span>{doc.readingTime}</span><Icon name="arrow" size={19} /></div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="contact shell" aria-labelledby="contact-title">
+      <div>
+        <p class="section-kicker">保持联系</p>
+        <h2 id="contact-title">有值得一起研究的问题？</h2>
+        <p>欢迎聊聊技术、写作，或者你正在构建的有趣东西。</p>
+      </div>
+      <a class="button contact-button" href={`mailto:${profile.email}`}>给我写邮件 <Icon name="arrow" size={18} /></a>
+    </section>
+  </main>
+
+  <footer class="footer shell">
+    <p>© {year} {profile.name}. Built with Astro & Starlight.</p>
+    <p>把知识留在开放的网络上。</p>
+  </footer>
+</BaseLayout>

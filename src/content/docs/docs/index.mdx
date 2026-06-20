@@ -1,0 +1,44 @@
+---
+title: 技术文档
+description: 记录学习过程、工程实践与值得复用的解决方案。
+template: splash
+hero:
+  tagline: 把踩过的坑、想明白的问题和可复用的方法，整理成随时可以回来查阅的文档。
+  actions:
+    - text: 开始阅读
+      link: /docs/learning-notes/
+      icon: right-arrow
+      variant: primary
+    - text: 返回个人主页
+      link: /
+      icon: external
+      variant: minimal
+sidebar:
+  order: 1
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+## 从这里开始
+
+<CardGrid>
+  <Card title="学习笔记" icon="open-book">
+    记录概念理解、源码阅读和知识梳理，适合快速查阅与复习。
+  </Card>
+  <Card title="实战教程" icon="rocket">
+    从真实目标出发，一步步完成可以运行、部署和维护的项目。
+  </Card>
+  <Card title="工具与配置" icon="setting">
+    收集开发环境、工作流和效率工具中值得长期使用的配置。
+  </Card>
+</CardGrid>
+
+:::tip[如何使用这个文档库]
+你可以从左侧分类开始阅读，也可以使用页面顶部的搜索直接查找关键词。每篇文章右侧都有页内目录。
+:::
+
+## 内容原则
+
+- **先讲为什么**：在命令和代码之前，先解释要解决的问题。
+- **保持可验证**：示例尽量可以独立运行，并注明前提条件。
+- **持续更新**：当实践发生变化时，及时修正文档而不是让它静静过期。
